@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogicScript : MonoBehaviour
 {
+    public int bouncingCount;
+    public Text countText;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +20,11 @@ public class LogicScript : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void addCount()
+    {
+        bouncingCount++;
+        countText.text = (bouncingCount / 2).ToString();
     }
 }

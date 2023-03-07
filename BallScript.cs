@@ -7,8 +7,8 @@ public class BallScript : MonoBehaviour
 {
     public float initialSpeed = 30;
     public Rigidbody2D myRigidBody;
-    public GameObject gun;
-
+    // public GameObject gun;
+    public LogicScript logic;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,11 +50,12 @@ public class BallScript : MonoBehaviour
         myRigidBody.velocity = direction * initialSpeed * Time.fixedDeltaTime;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    GameObject dBall;
-    //    dBall = Instantiate(this.gameObject, transform.position, transform.rotation);
-    //    //dBall.AddComponent<Rigidbody2D>();
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            logic.addCount();
+        }
+    }
 
 }
